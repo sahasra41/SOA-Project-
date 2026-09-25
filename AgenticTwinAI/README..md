@@ -69,7 +69,10 @@ The agent evaluates the scenario results and produces:
 RECOMMEND
 ESCALATE
 NO_ACTION_NEEDED
-System Workflow
+```
+---
+### System Workflow
+```text
 AI4I Dataset
      ↓
 Data Loader
@@ -87,31 +90,46 @@ Scenario Comparison
 Agent
      ↓
 Streamlit Dashboard
-Workflow Explanation
-Machine-condition data is loaded from the AI4I dataset.
-The data is validated and the required features are extracted.
-Random Forest predicts machine failure and failure probability.
-The current machine condition is represented in the Digital Twin.
-Different machine-parameter changes are simulated virtually.
-The scenarios are compared based on predicted risk and constraints.
-The agent selects an appropriate decision.
-The dashboard displays the machine condition and decision.
-Workflow Summary
+```
+## Workflow Explanation
 
-Load → Predict → Simulate → Compare → Decide → Monitor
+1. **Data Loading:** Machine-condition data is loaded from the AI4I dataset.
 
-Key Features
-Machine failure prediction
-Failure probability estimation
-Digital Twin representation
-What-if simulation
-Scenario comparison
-Parameter constraint validation
-Agentic decision support
-Continuous machine monitoring
-Streamlit dashboard
-End-to-end prediction-to-decision pipeline
-Novelty
+2. **Data Validation:** The dataset is validated and the required machine features are extracted.
+
+3. **Failure Prediction:** Random Forest predicts machine failure and calculates the failure probability.
+
+4. **Digital Twin:** The current machine condition is represented as a virtual machine state.
+
+5. **What-if Simulation:** Different machine-parameter changes are simulated virtually.
+
+6. **Scenario Comparison:** The generated scenarios are compared based on predicted risk, risk reduction, cost, and constraints.
+
+7. **Agentic Decision:** The agent evaluates the scenarios and selects an appropriate decision.
+
+8. **Dashboard:** The Streamlit dashboard displays the machine condition, risk, scenarios, and decision.
+
+## Workflow Summary
+
+**Load → Predict → Simulate → Compare → Decide → Monitor**
+
+---
+
+## Key Features
+
+- Machine failure prediction
+- Failure probability estimation
+- Digital Twin representation
+- What-if simulation
+- Scenario comparison
+- Parameter constraint validation
+- Agentic decision support
+- Continuous machine monitoring
+- Streamlit dashboard
+- End-to-end prediction-to-decision pipeline
+- 
+---
+## Novelty
 
 The main novelty of AgentTwinDefect AI is the integration of machine-failure prediction, Digital Twin what-if simulation, scenario comparison, and agentic decision support into one workflow.
 
@@ -120,7 +138,7 @@ Instead of:
 Prediction Only
 
 the system provides:
-
+```text
 Prediction
     ↓
 Simulation
@@ -128,20 +146,27 @@ Simulation
 Scenario Evaluation
     ↓
 Decision Support
-
+```
 The novelty is primarily architectural and integrative, extending the AI-enabled Digital Twin concept toward agentic decision support.
 
-Technology Stack
-Category	Technology	Purpose
-Programming	Python	Application development
-Data Processing	Pandas, NumPy	Data processing
-Machine Learning	Scikit-learn	Failure prediction
-ML Model	Random Forest	Classification
-Digital Twin	Python	What-if simulation
-Dashboard	Streamlit	Monitoring and visualization
-Version Control	Git	Source-code management
-Repository	GitHub	Project hosting
-Architecture
+## Technology Stack
+
+
+| Category | Technology | Purpose |
+|---|---|---|
+| Programming | Python | Application development |
+| Data Processing | Pandas, NumPy | Data processing |
+| Machine Learning | Scikit-learn | Failure prediction |
+| ML Model | Random Forest | Classification |
+| Digital Twin | Python | What-if simulation |
+| Dashboard | Streamlit | Monitoring and visualization |
+| Version Control | Git | Source-code management |
+| Repository | GitHub | Project hosting |
+
+---
+
+## Architecture
+```text
                     ┌──────────────────────┐
                     │     AI4I Dataset     │
                     │       ai4i.csv       │
@@ -186,12 +211,16 @@ Architecture
                     ┌──────────────────────┐
                     │ Streamlit Dashboard  │
                     └──────────────────────┘
-Dataset
+```
+---
+
+## Dataset
 AI4I 2020 Predictive Maintenance Dataset
 
 The project uses the AI4I 2020 Predictive Maintenance Dataset, containing 10,000 machine records.
 
-Main Features
+---
+### Main Features
 Feature	Description
 Air temperature [K]	Ambient temperature
 Process temperature [K]	Process temperature
@@ -203,7 +232,9 @@ Machine failure
 
 The failure-mode columns are not used as primary model inputs to avoid target leakage.
 
-Project Structure
+--- 
+## Project Structure
+```text
 AgentTwinDefect AI/
 │
 ├── agenttwindefect/
@@ -221,7 +252,10 @@ AgentTwinDefect AI/
 │
 ├── dashboard.py
 └── README.md
-Running the Project
+```
+---
+### Running the Project
+```text
 Install Dependencies
 pip install pandas numpy scikit-learn streamlit
 Complete Pipeline
@@ -236,8 +270,9 @@ Agent
 python -m agenttwindefect.agent
 Dashboard
 python -m streamlit run dashboard.py
-Model Evaluation
 
+```
+## Model Evaluation
 The Random Forest model is evaluated using:
 
 Accuracy
@@ -247,67 +282,64 @@ F1 Score
 Confusion Matrix
 Feature Importance
 
-Current test performance:
-
+## Current test performance:
+```text
 Accuracy  : approximately 98.3%
 Precision : approximately 88.6%
 Recall    : approximately 57.4%
 F1 Score  : approximately 69.7%
-
+```
 Because the dataset is imbalanced, accuracy is considered together with failure-class recall and F1 score.
 
-Expected Outcomes
+## Expected Outcomes
 
 AgentTwinDefect AI is designed to provide:
 
-Early identification of machine failure risk.
-Virtual evaluation of possible parameter changes.
-Comparison of corrective scenarios.
-Transparent agent-based decision support.
-Continuous machine-condition monitoring.
-A foundation for future real-time industrial integration.
-Limitations
-The Digital Twin is currently data-driven rather than physics-based.
-AI4I is a benchmark dataset rather than a live industrial sensor feed.
-Scenario evaluation mainly focuses on single-parameter changes.
-The agent is rule-based rather than LLM-based.
-The prototype does not directly control physical machinery.
-Future Scope
+- Early identification of machine failure risk.
+- Virtual evaluation of possible parameter changes.
+- Comparison of corrective scenarios.
+- Transparent agent-based decision support.
+- Continuous machine-condition monitoring.
+- A foundation for future real-time industrial integration.
+
+---
+
+## Future Scope
 
 The system can be extended with:
 
-Real-time IoT sensor integration
-Physics-based Digital Twin models
-Explainable AI
-Context-aware decision making
-Multi-parameter optimization
-Multi-agent architecture
-LLM-based agent interaction
-Real industrial machine integration
-Base Paper
+- Real-time IoT sensor integration
+- Physics-based Digital Twin models
+- Explainable AI
+- Context-aware decision making
+- Multi-parameter optimization
+- Multi-agent architecture
+- LLM-based agent interaction
+- Real industrial machine integration
 
+## Base Paper
 Dai et al. (2025).
-
 Generative and Predictive AI for Digital Twin Systems in Manufacturing
-
 Frontiers in Artificial Intelligence
-
 https://doi.org/10.3389/frai.2025.1655470
 
-Team
-Name	Roll Number
-S. Sushmita	2420090076
-P. Goda Sahasra	2420090128
-K. Amulya	2420090132
-Project Guide
 
-Dr. Srikanth Cherukuvada
-Assistant Professor
-Department of Computer Science and Engineering
+## Team
+
+| Name | Roll Number |
+|---|---|
+| P. Goda Sahasra | 2420090128 |
+| K. Amulya | 2420090132 |
+| S. Sushmita | 2420090076 |
+## Project Guide
+
+**Dr. Srikanth Cherukuvada**  
+Assistant Professor  
+Department of Computer Science and Engineering  
 KLH CSE Bowrampet Campus
 
-Project Focus
+## Project Focus
 
-AgentTwinDefect AI: An Agentic Digital Twin Platform for Real-Time Hidden Defect Prediction in Smart Manufacturing
+**AgentTwinDefect AI: An Agentic Digital Twin Platform for Real-Time Hidden Defect Prediction in Smart Manufacturing**
 
-Predict → Simulate → Compare → Decide
+> **Predict → Simulate → Compare → Decide**
